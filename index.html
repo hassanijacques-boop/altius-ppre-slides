@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Altius PPRE v2 — Présentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { 50:'#eef3fc',100:'#d4e2f7',200:'#abc6ef',300:'#7aa8e6',400:'#4d8adb',500:'#2b6cc9',600:'#1a56b0',700:'#0f3d7a',800:'#0a2a54',900:'#061833',950:'#030d1f' },
+            gold:  { 50:'#fef8e7',100:'#fceebf',200:'#f9df8a',300:'#f5c847',400:'#f0b429',500:'#e59c1a',600:'#c97a0a',700:'#a85a04',800:'#7e3f00',900:'#542800' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #0a2a54; color: white; overflow: hidden; height: 100vh; }
+    .slide { display: none; width: 100vw; height: 100vh; padding: 3rem 4rem; position: relative; }
+    .slide.active { display: flex; flex-direction: column; justify-content: center; }
+    .slide-num { position: absolute; bottom: 1.5rem; right: 2rem; font-size: .8rem; color: rgba(255,255,255,.3); }
+    .nav-btn { position: fixed; bottom: 1.5rem; z-index: 50; padding: .5rem 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.08); color: white; cursor: pointer; font-size: .85rem; transition: .2s; }
+    .nav-btn:hover { background: rgba(255,255,255,.15); }
+    .nav-btn.prev { left: 1.5rem; }
+    .nav-btn.next { right: 1.5rem; }
+    h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.15; }
+    h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+    h3 { font-size: 1.2rem; font-weight: 600; color: #f5c847; margin-bottom: .5rem; }
+    .subtitle { font-size: 1.1rem; color: rgba(255,255,255,.6); margin-top: .5rem; }
+    .badge-slide { display: inline-flex; padding: .2rem .8rem; border-radius: 999px; font-size: .75rem; font-weight: 600; background: rgba(245,200,71,.15); color: #f5c847; }
+    .feature-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 1.5rem; }
+    .feature-card h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: .4rem; }
+    .feature-card p { font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.5; }
+    .step { display: flex; gap: 1rem; margin-bottom: 1rem; }
+    .step-num { width: 2rem; height: 2rem; border-radius: 50%; background: #f5c847; color: #0a2a54; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; flex-shrink: 0; }
+    .ai-badge { background: linear-gradient(135deg, #7c3aed, #2563eb); color: white; font-size: .7rem; padding: .15rem .55rem; border-radius: 999px; display: inline-flex; align-items: center; gap: .25rem; }
+    .stat { text-align: center; }
+    .stat-value { font-size: 2.5rem; font-weight: 800; color: #f5c847; }
+    .stat-label { font-size: .85rem; color: rgba(255,255,255,.5); margin-top: .25rem; }
+    @media (max-width: 768px) { .slide { padding: 1.5rem; } h1 { font-size: 1.8rem; } h2 { font-size: 1.4rem; } .stat-value { font-size: 1.8rem; } }
+  </style>
+</head>
+<body>
+
+<div id="slides">
+  <!-- SLIDE 1 - TITLE -->
+  <div class="slide active" data-slide="0">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+      <div style="font-size:4rem;color:#f5c847;font-weight:800;margin-bottom:.5rem">▲</div>
+      <div class="badge-slide" style="margin-bottom:1rem">Nouvelle version v2</div>
+      <h1>Altius PPRE</h1>
+      <p class="subtitle" style="font-size:1.2rem">Programme Personnalisé de Réussite Éducative<br>assisté par Intelligence Artificielle</p>
+      <div style="margin-top:2.5rem;display:flex;gap:2rem;flex-wrap:wrap;justify-content:center">
+        <div class="stat"><div class="stat-value">⚡</div><div class="stat-label">Génération en 15 secondes</div></div>
+        <div class="stat"><div class="stat-value">🔒</div><div class="stat-label">100% gratuit et privé</div></div>
+        <div class="stat"><div class="stat-value">📄</div><div class="stat-label">Export PDF inclus</div></div>
+      </div>
+      <p style="margin-top:2rem;font-size:.85rem;color:rgba(255,255,255,.3)">Présentation — Circonscription de Bandraboua</p>
+    </div>
+    <div class="slide-num">1/9</div>
+  </div>
+
+  <!-- SLIDE 2 - PROBLEM -->
+  <div class="slide" data-slide="1">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;max-width:800px">
+      <span class="badge-slide">Le constat</span>
+      <h2 style="margin-top:.75rem">Pourquoi un PPRE prend du temps ?</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem">
+        <div class="feature-card" style="border-left:3px solid #ef4444">
+          <h4>⏳ Rédaction manuelle</h4>
+          <p>Chaque PPRE est rédigé de A à Z. Objectifs, activités, évaluation — tout est à écrire.</p>
+        </div>
+        <div class="feature-card" style="border-left:3px solid #f59e0b">
+          <h4>📋 Format à respecter</h4>
+          <p>Le cadre réglementaire impose une structure précise (constat, objectifs, activités, bilan).</p>
+        </div>
+        <div class="feature-card" style="border-left:3px solid #3b82f6">
+          <h4>🔄 Suivi dans le temps</h4>
+          <p>Difficile de suivre l'évolution des PPRE sans outil de suivi centralisé.</p>
+        </div>
+        <div class="feature-card" style="border-left:3px solid #8b5cf6">
+          <h4>👥 Collaboration limitée</h4>
+          <p>Partager un PPRE entre enseignant, CPE et direction demande des allers-retours.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num">2/9</div>
+  </div>
+
+  <!-- SLIDE 3 - SOLUTION -->
+  <div class="slide" data-slide="2">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;max-width:800px">
+      <span class="badge-slide">La solution</span>
+      <h2 style="margin-top:.75rem">Altius PPRE v2</h2>
+      <p class="subtitle" style="margin-bottom:2rem">Un outil web gratuit pour créer, suivre et évaluer les PPRE en un clic.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem">
+        <div class="feature-card" style="text-align:center">
+          <div style="font-size:2rem;margin-bottom:.5rem">✍️</div>
+          <h4>Création</h4>
+          <p>Décris l'élève et ses difficultés → l'IA rédige le PPRE</p>
+        </div>
+        <div class="feature-card" style="text-align:center">
+          <div style="font-size:2rem;margin-bottom:.5rem">📊</div>
+          <h4>Suivi</h4>
+          <p>Tableau de bord, historique, statut par PPRE</p>
+        </div>
+        <div class="feature-card" style="text-align:center">
+          <div style="font-size:2rem;margin-bottom:.5rem">📋</div>
+          <h4>Bilan</h4>
+          <p>Évaluation, décision, clôture — tout est tracé</p>
+        </div>
+      </div>
+      <div style="margin-top:2rem;background:rgba(255,255,255,.05);border-radius:12px;padding:1rem;text-align:center">
+        <p style="font-size:.9rem;color:rgba(255,255,255,.6)">Aucune installation · Aucune donnée personnelle envoyée · Entièrement gratuit</p>
+      </div>
+    </div>
+    <div class="slide-num">3/9</div>
+  </div>
+
+  <!-- SLIDE 4 - FEATURES -->
+  <div class="slide" data-slide="3">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;max-width:900px">
+      <h2>Fonctionnalités principales</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem">
+        <div class="feature-card"><h4>👤 Gestion des élèves</h4><p>Ajoute, modifie et suis chaque élève avec ses difficultés et points d'appui.</p></div>
+        <div class="feature-card"><h4>🤖 Génération IA <span class="ai-badge">Groq</span></h4><p>L'IA rédige un PPRE complet : constat, objectifs, activités, évaluation, observations.</p></div>
+        <div class="feature-card"><h4>📝 Édition libre</h4><p>Tu peux modifier, corriger ou personnaliser chaque PPRE après génération.</p></div>
+        <div class="feature-card"><h4>📄 Export PDF</h4><p>Génère un PDF imprimable du PPRE pour le dossier papier ou le livret scolaire.</p></div>
+        <div class="feature-card"><h4>📋 Bilan intégré</h4><p>Évalue chaque PPRE : objectifs atteints, à poursuivre, à réorienter, ou clôturer.</p></div>
+        <div class="feature-card"><h4>📖 Vademecum</h4><p>Guide de référence pour la rédaction des PPRE, adaptable par l'IA.</p></div>
+      </div>
+    </div>
+    <div class="slide-num">4/9</div>
+  </div>
+
+  <!-- SLIDE 5 - HOW IT WORKS -->
+  <div class="slide" data-slide="4">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;max-width:800px">
+      <h2>Comment ça marche ?</h2>
+      <div style="margin-top:2rem">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div><strong style="font-size:1.05rem">Ajouter un élève</strong><br><span style="color:rgba(255,255,255,.5);font-size:.9rem">Nom, classe, difficultés, points d'appui</span></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div><strong style="font-size:1.05rem">Nouveau PPRE</strong><br><span style="color:rgba(255,255,255,.5);font-size:.9rem">Décris le contexte, la matière, les objectifs visés</span></div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div><strong style="font-size:1.05rem">Générer avec l'IA <span class="ai-badge">✨ IA</span></strong><br><span style="color:rgba(255,255,255,.5);font-size:.9rem">L'IA rédige le PPRE complet en 10-15 secondes</span></div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div><strong style="font-size:1.05rem">Modifier si besoin</strong><br><span style="color:rgba(255,255,255,.5);font-size:.9rem">Tu peux éditer, corriger, enrichir le PPRE généré</span></div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div><strong style="font-size:1.05rem">Suivi et bilan</strong><br><span style="color:rgba(255,255,255,.5);font-size:.9rem">Évalue les progrès, décide de la suite, exporte en PDF</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num">5/9</div>
+  </div>
+
+  <!-- SLIDE 6 - IA GENERATION -->
+  <div class="slide" data-slide="5">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;max-width:800px">
+      <span class="badge-slide" style="background:rgba(124,58,237,.2);color:#a78bfa">✨ Intelligence Artificielle</span>
+      <h2 style="margin-top:.75rem">Ce que l'IA génère pour vous</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem">
+        <div class="feature-card" style="background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.2)">
+          <h4>📋 1. Constat</h4>
+          <p style="font-size:.85rem">Analyse des difficultés de l'élève, du contexte et des besoins identifiés.</p>
+        </div>
+        <div class="feature-card" style="background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.2)">
+          <h4>🎯 2. Objectifs prioritaires</h4>
+          <p style="font-size:.85rem">3 à 5 objectifs concrets et mesurables pour la durée du PPRE.</p>
+        </div>
+        <div class="feature-card" style="background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.2)">
+          <h4>📚 3. Activités et modalités</h4>
+          <p style="font-size:.85rem">Activités adaptées, fréquence, supports et mode d'accompagnement.</p>
+        </div>
+        <div class="feature-card" style="background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.2)">
+          <h4>📊 4. Évaluation</h4>
+          <p style="font-size:.85rem">Critères de réussite, modalités d'évaluation, bilan à mi-parcours.</p>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;background:rgba(255,255,255,.05);border-radius:12px;padding:1rem;text-align:center">
+        <p style="font-size:.9rem;color:rgba(255,255,255,.6)">💡 L'IA rédige selon le profil de l'élève. Vous validez et personnalisez.</p>
+      </div>
+    </div>
+    <div class="slide-num">6/9</div>
+  </div>
+
+  <!-- SLIDE 7 - FOR CPES AND TEAM -->
+  <div class="slide" data-slide="6">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;max-width:800px">
+      <span class="badge-slide" style="background:rgba(16,185,129,.15);color:#34d399">👥 Pour les CPE et la direction</span>
+      <h2 style="margin-top:.75rem">Un outil pour toute l'équipe</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem">
+        <div class="feature-card" style="border-left:3px solid #10b981">
+          <h4>👩‍🏫 Enseignants</h4>
+          <p>Créent les PPRE pour leurs élèves, suivent les objectifs, font le bilan.</p>
+        </div>
+        <div class="feature-card" style="border-left:3px solid #3b82f6">
+          <h4>👨‍💼 CPE</h4>
+          <p>Vision globale des PPRE par niveau, suivi des élèves accompagnés.</p>
+        </div>
+        <div class="feature-card" style="border-left:3px solid #f59e0b">
+          <h4>📋 Direction</h4>
+          <p>Tableau de bord, statistiques, vue d'ensemble des dispositifs.</p>
+        </div>
+        <div class="feature-card" style="border-left:3px solid #8b5cf6">
+          <h4>🤝 Collaboratif</h4>
+          <p>Chacun peut accéder depuis son navigateur, sur tout appareil.</p>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;background:rgba(255,255,255,.05);border-radius:12px;padding:1rem;display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center">
+        <span style="font-size:.85rem;color:rgba(255,255,255,.5)">✅ Pas de compte requis</span>
+        <span style="font-size:.85rem;color:rgba(255,255,255,.5)">✅ Fonctionne sur PC, tablette, téléphone</span>
+        <span style="font-size:.85rem;color:rgba(255,255,255,.5)">✅ Aucune donnée sur un serveur</span>
+      </div>
+    </div>
+    <div class="slide-num">7/9</div>
+  </div>
+
+  <!-- SLIDE 8 - ACCESS -->
+  <div class="slide" data-slide="7">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;max-width:800px;margin:0 auto">
+      <span class="badge-slide" style="background:rgba(245,200,71,.15);color:#f5c847">🔗 Accès</span>
+      <h2 style="margin-top:.75rem">Comment accéder ?</h2>
+      <p class="subtitle" style="margin-bottom:2rem">Rien à installer, rien à télécharger.</p>
+      
+      <div style="background:rgba(255,255,255,.08);border-radius:16px;padding:2rem;width:100%">
+        <p style="font-size:1.3rem;font-weight:700;word-break:break-all;margin-bottom:1.5rem;color:#f5c847">bit.ly/altius-ppre</p>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.5);margin-bottom:1.5rem">ou directement :</p>
+        <div style="background:rgba(0,0,0,.3);border-radius:8px;padding:1rem;font-family:monospace;font-size:1rem;word-break:break-all;color:#f5c847">
+          hassanijacques-boop.github.io/altius-ppre
+        </div>
+      </div>
+
+      <div style="margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;width:100%">
+        <div class="feature-card" style="text-align:center">
+          <div style="font-size:1.5rem">📱</div>
+          <h4 style="font-size:.9rem">Sur téléphone</h4>
+          <p style="font-size:.8rem">Ouvrir le lien → Ajouter à l'accueil</p>
+        </div>
+        <div class="feature-card" style="text-align:center">
+          <div style="font-size:1.5rem">🔑</div>
+          <h4 style="font-size:.9rem">Clé API (1 fois)</h4>
+          <p style="font-size:.8rem">console.groq.com → Create Key → Coller dans Réglages</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num">8/9</div>
+  </div>
+
+  <!-- SLIDE 9 - Q&A -->
+  <div class="slide" data-slide="8">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+      <div style="font-size:3rem;color:#f5c847;font-weight:800;margin-bottom:.5rem">▲</div>
+      <h2>Questions & Échanges</h2>
+      <p class="subtitle" style="margin-bottom:2rem">Testez l'outil en direct !</p>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center">
+        <div class="feature-card" style="text-align:center;min-width:140px">
+          <div style="font-size:1.5rem;margin-bottom:.3rem">📧</div>
+          <p style="font-size:.85rem">jacques.hassani-moustoifa<br>@ac-mayotte.fr</p>
+        </div>
+        <div class="feature-card" style="text-align:center;min-width:140px">
+          <div style="font-size:1.5rem;margin-bottom:.3rem">📱</div>
+          <p style="font-size:.85rem">Contact direct<br>pour un accompagnement</p>
+        </div>
+      </div>
+      <p style="margin-top:2rem;font-size:.85rem;color:rgba(255,255,255,.3)">Altius PPRE v2 — ▲ juillet 2026</p>
+    </div>
+    <div class="slide-num">9/9</div>
+  </div>
+</div>
+
+<button class="nav-btn prev" onclick="prevSlide()">← Précédent</button>
+<button class="nav-btn next" onclick="nextSlide()">Suivant →</button>
+
+<div style="position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:50">
+  <span id="slide-dots"></span>
+</div>
+
+<script>
+let currentSlide = 0
+const total = 9
+
+function showSlide(n) {
+  currentSlide = Math.max(0, Math.min(n, total - 1))
+  document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide))
+  document.querySelector('.prev').style.display = currentSlide === 0 ? 'none' : 'block'
+  document.querySelector('.next').textContent = currentSlide === total - 1 ? 'Terminer' : 'Suivant →'
+  
+  const dots = Array.from({length: total}, (_, i) => 
+    `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${i === currentSlide ? '#f5c847' : 'rgba(255,255,255,.2)'};transition:.2s"></span>`
+  ).join('')
+  document.getElementById('slide-dots').innerHTML = dots
+}
+
+function nextSlide() {
+  if (currentSlide < total - 1) showSlide(currentSlide + 1)
+}
+
+function prevSlide() {
+  if (currentSlide > 0) showSlide(currentSlide - 1)
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') nextSlide()
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSlide()
+})
+
+// Touch support
+let touchStartX = 0
+document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX })
+document.addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].screenX
+  if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide()
+})
+
+showSlide(0)
+</script>
+</body>
+</html>
